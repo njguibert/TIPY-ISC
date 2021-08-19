@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Introducción a los Sistemas de Control 2021 - Template
+  p
+    label Estado LED:
+      label(id="lbl_led_status") ON/OFF
+  p
+    label Estado Pulsador:
+      label(id="lbl_pulsador_status") ON/OFF      
+  p
+    input(type="button",value="LED ON",id="btn_on",class="btn btn-success")
+  p
+    input(type="button",value="LED OFF",id="btn_off",class="btn btn-danger")
+

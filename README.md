@@ -1,2 +1,2 @@
 # TIPY-ISC
- Repositorio de templates utilizado en la asignatura Introducción a los Sistemas de Control
+ Repositorio de templates utilizados en la asignatura Introducción a los Sistemas de Control
