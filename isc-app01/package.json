@@ -1,5 +1,5 @@
 {
-  "name": "isc-app01",
+  "name": "isc2023",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11",
-    "serialport": "^10.4.0",
-    "socket.io": "^4.5.1"
+    "serialport": "^11.0.1",
+    "socket.io": "^4.7.2"
   }
 }

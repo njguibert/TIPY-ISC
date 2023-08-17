@@ -5,8 +5,9 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('isc-app01:server');
+var debug = require('debug')('isc2023:server');
 var http = require('http');
+
 
 /**
  * Get port from environment and store in Express.
@@ -23,7 +24,6 @@ var server = http.createServer(app);
 var io= require('socket.io')(server);
 
 require('../websocket/base')(io);
-
 
 /**
  * Listen on provided port, on all network interfaces.

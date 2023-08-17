@@ -1,33 +1,22 @@
 const { SerialPort } = require('serialport')
-const  {ReadlineParser} = require('@serialport/parser-readline')
+const { ReadlineParser } = require('@serialport/parser-readline')
 
-const puertoserie = new SerialPort({
-  path:"/home/jesus/virtual2",
-  baudRate: 9600
+const port = new SerialPort({
+    path: 'COM3',
+    baudRate: 9600,
 })
-const parser = new ReadlineParser();
-
-puertoserie.pipe(parser)
-
-var dataSerial ="";
-
+const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }))
+parser.on('data', console.log)
 
 module.exports = function(io){
+    io.on("connection",(socket)=>{
+        console.log("Socket conectado");
 
-  parser.on("data",function(data){
-    console.log(data);
-    io.emit("mensaje_del_mcu",data);
-  })
-  
-  io.on("connection",function(socket){
-    console.log("Socket conectado");
-
-    socket.on("LED",function(valorLED,callback){
-      console.log("valorLED:"+valorLED);
-      puertoserie.write(valorLED);
-      callback(true);
-    });
-  
-  });
-
+      socket.on("AccionarLED",(argumento1,fncallback)=>{
+        console.log("AccionarLED:"+argumento1)
+        if (argumento1=="p") port.write("p");
+        else if (argumento1=="a") port.write("a");
+        fncallback(true);
+      })
+    })
 }
