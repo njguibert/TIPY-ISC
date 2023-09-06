@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p
+    label(id="lbl_mensaje_del_mcu") Mensaje del MCU
+  p 
+    input(type="button",value="Encender",id="btn_on",class="btn btn-success")
+  p 
+    input(type="button",value="Apagar",id="btn_off",class="btn btn-danger")
